@@ -1,0 +1,152 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active ">
+      <img src="{% static 'app/images/banner/sh1.jpg' %}" class="d-block w-100" alt="..."> 
+      <span class="centered bntext_color position-absolute top-50 start-50 translate-middle mt-5"><h1>Hey Buddy Welcome to the Gshop...</h1></span>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/sh2.jpg' %}" class="d-block w-100" alt="...">
+            <span class="centered bntext_color position-absolute top-50 start-50 translate-middle mt-5"><h1>Hey Buddy Welcome to the Gshop...</h1></span>
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/sh3.jpg' %}" class="d-block w-100" alt="...">
+            <span class="centered bntext_color position-absolute top-50 start-50 translate-middle mt-5"><h1>Hey Buddy Welcome to the Gshop...</h1></span>
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/sh8.jpg' %}" class="d-block w-100" alt="...">
+            <span class="centered bntext_color position-absolute top-50 start-50 translate-middle mt-5"><h1>Hey Buddy Welcome to the Gshop...</h1></span>
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/sh9.jpg' %}" class="d-block w-100" alt="...">
+            <span class="centered bntext_color position-absolute top-50 start-50 translate-middle mt-5"><h1>Hey Buddy Welcome to the Gshop...</h1></span>
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/sh10.jpg' %}" class="d-block w-100" alt="...">
+            <span class="centered bntext_color position-absolute top-50 start-50 translate-middle mt-5"><h1>Hey Buddy Welcome to the Gshop...</h1></span>
+
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+<!-- Live Sale Section -->
+<div class="container-fluid alternate_style" >
+  <div class="row  text-center p-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <p>Electonics & Accessories <br>UP TO 80% OFF <br> Stay Tuned</p>
+    <span>10% Instant Discount* On HDFC Bank Credit Cards & EMI</span>
+    <small class="fw-lighter">No Cost EMI | Complete Mobile Pretection | Best Deals On Exchange</small>
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2>Gshop Bottom Wears</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for bottom in bottomwears %}
+    <a href="{% url 'product-detail' bottom.id %}" class="btn"><div class="item"><img src="{{bottom.product_image.url}}" alt="" height="300px"><span class="fw-bold h6 txtstyle ">{{bottom.title}}</span><br><span class="fs-5 text-success">Rs.{{bottom.discounted_price}}| <small class="fw-light text-decoration-line-through text-danger">Rs.{{bottom.selling_price}}</small></span></div></a>
+  {% endfor %}
+  
+ </div>
+</div>
+<!-- End 1st Product Slider -->
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- End Payment Info Section -->
+
+<!-- 2nd Product Slider -->
+<div class="m-3">
+ <h2>Gshop Top Wears</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for top in topwears %}
+    <a href="{% url 'product-detail' top.id %}" class="btn"><div class="item"><img src="{{top.product_image.url}}" alt="" height="300px"><span class="fw-bold h6 txtstyle">{{top.title}}</span><br><span class="fs-5 text-success">Rs.{{top.discounted_price}}| <small class="fw-light text-decoration-line-through text-danger">Rs.{{top.selling_price}}</small></span></div></a>
+  {% endfor %}
+  
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<!-- 3rd Product Slider -->
+<div class="m-3">
+ <h2>Gshop Mobile Phones</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for mobile in mobiles %}
+    <a href="{% url 'product-detail' mobile.id %}" class="btn"><div class="item"><img src="{{mobile.product_image.url}}" alt="" height="450px"><span class="fw-bold h6 txtstyle">{{mobile.title}}</span><br><span class="fs-5 text-success">Rs.{{mobile.discounted_price}}| <small class="fw-light text-decoration-line-through text-danger">Rs.{{mobile.selling_price}}</small></span></div></a>
+  {% endfor %}
+  
+ </div>
+</div>
+<!-- End 3rd Product Slider -->
+
+<!-- 4th Product Slider -->
+<div class="m-3">
+ <h2>Gshop Laptops</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for laptop in laptops %}
+    <a href="{% url 'product-detail' laptop.id %}" class="btn"><div class="item"><img src="{{laptop.product_image.url}}" alt="" height="200px"><span class="fw-bold h6 txtstyle">{{laptop.title}}</span><br><span class="fs-5 text-success">Rs.{{laptop.selling_price}}| <small class="fw-light text-decoration-line-through text-danger">Rs.{{laptop.discounted_price}}</small></span></div></a>
+  {% endfor %}
+  
+ </div>
+</div>
+<!-- End 4th Product Slider -->
+{% endblock main-content %}
+
